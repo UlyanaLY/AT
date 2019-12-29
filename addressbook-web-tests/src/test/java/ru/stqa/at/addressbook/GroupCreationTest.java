@@ -15,6 +15,14 @@ public class GroupCreationTest {
 		System.setProperty("webdriver.chrome.driver","C:\\Users\\PC\\Documents\\GitHub\\drivers\\chromedriver.exe");
 		wd = new ChromeDriver();
 		wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		wd.get("http://localhost/addressbook/group.php");
+		wd.findElement(By.name("user")).click();
+		wd.findElement(By.name("user")).clear();
+		wd.findElement(By.name("user")).sendKeys("admin");
+		wd.findElement(By.id("LoginForm")).click();
+		wd.findElement(By.name("pass")).click();
+		wd.findElement(By.name("pass")).clear();
+		wd.findElement(By.name("pass")).sendKeys("secret");
 	}
 
 	@Test
@@ -41,11 +49,11 @@ public class GroupCreationTest {
 		wd.findElement(By.name("submit")).click();
 		wd.findElement(By.linkText("groups")).click();
 		wd.findElement(By.name("selected[]")).click();
-		wd.findElement(By.linkText("Logout")).click();
 	}
 
 	@AfterMethod(alwaysRun = true)
 	public void tearDown() throws Exception {
+		wd.findElement(By.linkText("Logout")).click();
 		wd.quit();
 	}
 
