@@ -1,0 +1,17 @@
+package ru.stqa.at.addressbook.test;
+
+import org.testng.annotations.*;
+import ru.stqa.at.addressbook.model.ContactData;
+
+public class ContactCreationTest extends TestBase {
+
+	@Test
+	public void testContactCreation() throws Exception {
+		app.goToCreateContactPage();
+		app.fillContactForm(new ContactData("Ivan", "Ivanov", "099038, Crimea, Simferopol, Lenina 26-a",
+						"898978909889", "testing1@gmail.com"));
+		app.submitContactForm();
+		app.goToHomePage();
+		app.checkCreatedContact();
+	}
+}
