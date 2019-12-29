@@ -18,6 +18,13 @@ public class ContactHelper extends HelperBase{
 		click(By.xpath("(//input[@name='submit'])[2]"));
 	}
 
+	public void deleteContact() {
+		click(By.xpath("//input[@value='Delete']"));
+		if( isAlertPresent()==true) {
+			wd.switchTo().alert().accept();
+		};
+	}
+
 	public void fillContactForm(ContactData contactdata) {
 		type( By.name("firstname"), contactdata.getContactName());
 		type( By.name("lastname"), contactdata.getContcatLastName());
