@@ -11,7 +11,7 @@ public class ContactHelper extends HelperBase{
 	}
 
 	public void checkCreatedContact() {
-		click(By.id("3"));
+		click(By.name("selected[]"));
 	}
 
 	public void submitContactForm() {
@@ -31,5 +31,13 @@ public class ContactHelper extends HelperBase{
 		type( By.name("address"), contactdata.getContactAddress());
 		type( By.name("mobile"), contactdata.getContactPhone());
 		type( By.name("email"), contactdata.getContactEmail());
+	}
+
+	public void initContactModification() {
+		click(By.xpath("//img[@alt='Edit']"));
+	}
+
+	public void submitContactModification() {
+		click(By.name("update"));
 	}
 }
