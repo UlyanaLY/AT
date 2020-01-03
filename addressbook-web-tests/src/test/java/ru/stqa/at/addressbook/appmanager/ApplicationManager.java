@@ -2,21 +2,40 @@ package ru.stqa.at.addressbook.appmanager;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.BrowserType;
 
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
+
 	protected WebDriver wd;
 
 	private SessionHelper sessionHelper;
 	private NavigationHelper navigationHelper;
 	private GroupHelper groupHelper;
 	private ContactHelper contactHelper;
+	private String browser;
+
+	public ApplicationManager(String browser) {
+		this.browser = browser;
+	}
 
 	public void init() {
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\PC\\Documents\\GitHub\\drivers\\chromedriver.exe");
-		wd = new ChromeDriver();
-		wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+		if (browser.equals(BrowserType.CHROME)) {
+			System.setProperty("webdriver.chrome.driver", "C:\\Users\\PC\\Documents\\GitHub\\drivers\\chromedriver.exe");
+			wd = new ChromeDriver();
+		} else if (browser.equals(BrowserType.IE)) {
+			System.setProperty("webdriver.ie.driver", "C:\\Users\\PC\\Documents\\GitHub\\drivers\\IEDriverServer.exe");
+			wd = new InternetExplorerDriver();
+		} else if (browser.equals(BrowserType.FIREFOX)) {
+			System.setProperty("webdriver.gecko.driver", "C:\\Users\\PC\\Documents\\GitHub\\drivers\\geckodriver.exe");
+			wd = new FirefoxDriver();
+		}
+
+		wd.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
 		wd.get("http://localhost/addressbook/");
 		groupHelper = new GroupHelper(wd);
 		navigationHelper = new NavigationHelper(wd);
@@ -26,7 +45,7 @@ public class ApplicationManager {
 	}
 
 	public void stop() {
-		sessionHelper.logout ();
+		sessionHelper.logout();
 		wd.quit();
 	}
 

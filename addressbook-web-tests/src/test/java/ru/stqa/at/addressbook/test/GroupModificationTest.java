@@ -6,7 +6,7 @@ import ru.stqa.at.addressbook.model.GroupData;
 public class GroupModificationTest extends TestBase {
 
 	@Test
-	public void testGroupCreation() throws Exception {
+	public void testGroupModification() throws Exception {
 		app.getNavigationHelper().goToGroupPage();
 		app.getGroupHelper().checkCreatedGroup();
 		app.getGroupHelper().initGroupModification();
