@@ -27,15 +27,18 @@ public class ApplicationManager {
 		if (browser.equals(BrowserType.CHROME)) {
 			System.setProperty("webdriver.chrome.driver", "C:\\Users\\PC\\Documents\\GitHub\\drivers\\chromedriver.exe");
 			wd = new ChromeDriver();
+			wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 		} else if (browser.equals(BrowserType.IE)) {
 			System.setProperty("webdriver.ie.driver", "C:\\Users\\PC\\Documents\\GitHub\\drivers\\IEDriverServer.exe");
 			wd = new InternetExplorerDriver();
+			wd.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
 		} else if (browser.equals(BrowserType.FIREFOX)) {
 			System.setProperty("webdriver.gecko.driver", "C:\\Users\\PC\\Documents\\GitHub\\drivers\\geckodriver.exe");
 			wd = new FirefoxDriver();
+			wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 		}
 
-		wd.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
+
 		wd.get("http://localhost/addressbook/");
 		groupHelper = new GroupHelper(wd);
 		navigationHelper = new NavigationHelper(wd);
