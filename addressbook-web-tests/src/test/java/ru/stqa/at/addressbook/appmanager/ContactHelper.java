@@ -50,4 +50,23 @@ public class ContactHelper extends HelperBase{
 	public void submitContactModification() {
 		click(By.name("update"));
 	}
+
+	public boolean isThereAContact() {
+		return isElementPresent(By.name("selected[]"));
+	}
+
+	public void createAContact(ContactData contactData, boolean isCreated) {
+	  fillContactForm(new ContactData("Ivan", "Ivanov", "099038, Crimea, Simferopol, Lenina 26-a",
+						"898978909889", "testing1@gmail.com", "friends"), isCreated);
+		submitContactForm();
+		goToHomePage();
+		checkCreatedContact();
+	}
+
+	public void goToHomePage() {
+		if (isElementPresent(By.id("maintainable"))) {
+			return;
+		}
+		click(By.linkText("home"));
+	}
 }
