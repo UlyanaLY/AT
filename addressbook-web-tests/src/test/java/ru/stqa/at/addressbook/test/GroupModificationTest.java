@@ -6,7 +6,7 @@ import ru.stqa.at.addressbook.model.GroupData;
 public class GroupModificationTest extends TestBase {
 
 	@Test
-	public void testGroupModification() throws Exception {
+	public void testGroupModification() {
 		app.getGroupHelper().goToGroupPage();
 
 		if (!app.getGroupHelper().isThereAGroup()) {
@@ -15,7 +15,7 @@ public class GroupModificationTest extends TestBase {
 		app.getGroupHelper().goToGroupPage();
 		app.getGroupHelper().checkCreatedGroup();
 		app.getGroupHelper().initGroupModification();
-		app.getGroupHelper().fillGroupForm(new GroupData("test2", "test2_header", "test2_footer"));
+		app.getGroupHelper().fillGroupForm(new GroupData("friends", "test2_header", "test2_footer"));
 		app.getGroupHelper().submitGroupModification();
 		app.getGroupHelper().goToGroupPage();
 		app.getGroupHelper().checkCreatedGroup();

@@ -2,12 +2,11 @@ package ru.stqa.at.addressbook.test;
 
 import org.testng.annotations.Test;
 import ru.stqa.at.addressbook.model.ContactData;
-import ru.stqa.at.addressbook.model.GroupData;
 
 public class ContactDeletionTest extends TestBase {
 
 	@Test
-	public void testContactDeletion() throws Exception {
+	public void testContactDeletion() {
 		app.getContactHelper().goToHomePage();
 
 		if (!app.getContactHelper().isThereAContact()) {
@@ -19,5 +18,6 @@ public class ContactDeletionTest extends TestBase {
 		}
 		app.getContactHelper().deleteContact();
 		app.getContactHelper().goToHomePage();
+		app.getSessionHelper().logout();
 	}
 }

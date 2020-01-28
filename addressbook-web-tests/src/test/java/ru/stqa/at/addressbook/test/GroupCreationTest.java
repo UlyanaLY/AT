@@ -6,10 +6,9 @@ import ru.stqa.at.addressbook.model.GroupData;
 public class GroupCreationTest extends TestBase {
 
 	@Test
-	public void testGroupCreation() throws Exception {
+	public void testGroupCreation() {
 		app.getGroupHelper().goToGroupPage();
 		app.getGroupHelper().createAGroup(new GroupData("friends", null, null));
-		app.getGroupHelper().goToGroupPage();
-		app.getGroupHelper().checkCreatedGroup();
+		app.getSessionHelper().logout();
 	}
 }

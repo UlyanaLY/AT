@@ -6,7 +6,7 @@ import ru.stqa.at.addressbook.model.ContactData;
 public class ContactModificationTest extends TestBase {
 
 	@Test
-	public void testContactModification() throws Exception {
+	public void testContactModification() {
 		app.getContactHelper().goToHomePage();
 		if (!app.getContactHelper().isThereAContact()) {
 			app.getNavigationHelper().goToCreateContactPage();
@@ -20,5 +20,6 @@ public class ContactModificationTest extends TestBase {
 						"898978909881", "testing123@gmail.com", null), false);
 		app.getContactHelper().submitContactModification();
 		app.getContactHelper().goToHomePage();
+		app.getSessionHelper().logout();
 	}
 }
