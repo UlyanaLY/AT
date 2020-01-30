@@ -61,4 +61,8 @@ public class GroupHelper extends HelperBase{
 			click(By.linkText("groups"));
 		}
 	}
+
+	public int getGroupCount() {
+		return wd.findElements(By.name("selected[]")).size();
+	}
 }
