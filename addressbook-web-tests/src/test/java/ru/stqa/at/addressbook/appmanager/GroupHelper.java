@@ -28,8 +28,8 @@ public class GroupHelper extends HelperBase{
 		click(By.name("edit"));
 	}
 
-	public void checkCreatedGroup() {
-		click(By.name("selected[]"));
+	public void checkCreatedGroup(int index) {
+		wd.findElements(By.name("selected[]")).get(index).click();
 	}
 
 	public void deleteGroup() {
@@ -45,7 +45,7 @@ public class GroupHelper extends HelperBase{
 		fillGroupForm(group);
 		submitGroupForm();
 		goToGroupPage();
-		checkCreatedGroup();
+		checkCreatedGroup(0);
 	}
 
 	public boolean isThereAGroup() {
