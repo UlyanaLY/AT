@@ -3,7 +3,7 @@ package ru.stqa.at.addressbook.model;
 import java.util.Objects;
 
 public class ContactData {
-	private final String id;
+	private  int id;
 	private final String contactName;
 	private final String contactLastName;
 	private final String contactAddress;
@@ -12,7 +12,7 @@ public class ContactData {
 	private String group;
 
 	public ContactData(String contactName, String contactLastName, String contactAddress, String contactPhone, String contactEmail, String group) {
-		this.id = null;
+		this.id = Integer.MAX_VALUE;
 		this.contactName = contactName;
 		this.contactLastName = contactLastName;
 		this.contactAddress = contactAddress;
@@ -21,11 +21,7 @@ public class ContactData {
 		this.group = group;
 	}
 
-	public String getId() {
-		return id;
-	}
-
-	public ContactData(String id, String contactName, String contactLastName, String contactAddress, String contactPhone, String contactEmail, String group) {
+	public ContactData(int id, String contactName, String contactLastName, String contactAddress, String contactPhone, String contactEmail, String group) {
 		this.id = id;
 		this.contactName = contactName;
 		this.contactLastName = contactLastName;
@@ -33,6 +29,14 @@ public class ContactData {
 		this.contactPhone = contactPhone;
 		this.contactEmail = contactEmail;
 		this.group = group;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getId() {
+		return id;
 	}
 
 	public String getContactName() {
@@ -55,6 +59,10 @@ public class ContactData {
 		return contactEmail;
 	}
 
+	public String getGroup() {
+		return group;
+	}
+
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
@@ -75,9 +83,5 @@ public class ContactData {
 						"contactName='" + contactName + '\'' +
 						", contactLastName='" + contactLastName + '\'' +
 						'}';
-	}
-
-	public String getGroup() {
-		return group;
 	}
 }
