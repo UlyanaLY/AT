@@ -4,12 +4,13 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.stqa.at.addressbook.model.ContactData;
 
+import java.util.List;
+
 public class ContactDeletionTest extends TestBase {
 
 	@Test
 	public void testContactDeletion() {
 		app.getContactHelper().goToHomePage();
-		int before = app.getContactHelper().getContactCount();
 		if (!app.getContactHelper().isThereAContact()) {
 			app.getNavigationHelper().goToCreateContactPage();
 			app.getContactHelper().createAContact(new ContactData("Ivan", "Ivanov", "099038, Crimea, Simferopol, Lenina 26-a",
@@ -17,9 +18,10 @@ public class ContactDeletionTest extends TestBase {
 		} else {
 			app.getContactHelper().checkCreatedContact();
 		}
+		List<ContactData> before = app.getContactHelper().getContactList();
 		app.getContactHelper().deleteContact();
 		app.getContactHelper().goToHomePage();
-		int after = app.getContactHelper().getContactCount();
-		Assert.assertEquals(after, before - 1);
+		List<ContactData> after = app.getContactHelper().getContactList();
+		Assert.assertEquals(after.size(), before.size() - 1);
 	}
 }
