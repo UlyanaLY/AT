@@ -7,21 +7,6 @@ public class GroupData {
 	private final String groupName;
 	private final String header;
 	private final String footer;
-
-	public GroupData(int id, String groupName, String header, String footer) {
-		this.id = Integer.MAX_VALUE;
-		this.groupName = groupName;
-		this.header = header;
-		this.footer = footer;
-	}
-
-	public GroupData(String groupName, String header, String footer) {
-
-		this.groupName = groupName;
-		this.header = header;
-		this.footer = footer;
-	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -42,6 +27,19 @@ public class GroupData {
 		return footer;
 	}
 
+	public GroupData(String groupName, String header, String footer) {
+		this.id = Integer.MAX_VALUE;
+		this.groupName = groupName;
+		this.header = header;
+		this.footer = footer;
+	}
+
+	public GroupData(int id, String groupName, String header, String footer) {
+		this.id = id;
+		this.groupName = groupName;
+		this.header = header;
+		this.footer = footer;
+	}
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
@@ -58,7 +56,7 @@ public class GroupData {
 	@Override
 	public String toString() {
 		return "GroupData{" +
-						"id=" + id +
+						"id='" + id + '\'' +
 						", groupName='" + groupName + '\'' +
 						'}';
 	}
