@@ -18,8 +18,8 @@ public class ContactHelper extends HelperBase{
 		super(wd);
 	}
 
-	public void checkCreatedContact() {
-		click(By.name("selected[]"));
+	public void checkCreatedContact(int index) {
+		wd.findElements(By.name("selected[]")).get(index).click();
 	}
 
 	public void submitContactForm() {
@@ -64,7 +64,7 @@ public class ContactHelper extends HelperBase{
 						"898978909889", "testing1@gmail.com", "friends"), isCreated);
 		submitContactForm();
 		goToHomePage();
-		checkCreatedContact();
+		//checkCreatedContact();
 	}
 
 	public void goToHomePage() {
@@ -72,10 +72,6 @@ public class ContactHelper extends HelperBase{
 			return;
 		}
 		click(By.linkText("home"));
-	}
-
-	public int getContactCount() {
-		return wd.findElements(By.name("selected[]")).size();
 	}
 
 	public List<ContactData> getContactList() {
@@ -89,7 +85,7 @@ public class ContactHelper extends HelperBase{
 //			String contactEmail = element.findElement(By.cssSelector("td:nth-child(5)")).getText();
 //			String contactPhone = element.findElement(By.cssSelector("td:nth-child(6)")).getText();
 
-			int id= Integer.parseInt(element.findElement(By.cssSelector("td:nth-child(1) > input")).getAttribute("value"));
+			String id = element.findElement(By.cssSelector("td:nth-child(1) > input")).getAttribute("value");
 			ContactData contact = new ContactData(contactName, contactLastName, null, null, null, null);
 			contacts.add(contact);
 		}
