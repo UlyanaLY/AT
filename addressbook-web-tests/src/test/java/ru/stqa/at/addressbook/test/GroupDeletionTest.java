@@ -7,6 +7,13 @@ import ru.stqa.at.addressbook.model.GroupData;
 import java.util.List;
 
 public class GroupDeletionTest extends TestBase {
+	@BeforeMethod
+	public void ensurePreconditions() {
+		app.getGroupHelper().goToGroupPage();
+		if (!app.getGroupHelper().isThereAGroup()) {
+			app.getGroupHelper().createAGroup(new GroupData("test1", "test_header", "test_footer"));
+		}
+	}
 
 	@Test
 	public void testGroupDeletion() {
