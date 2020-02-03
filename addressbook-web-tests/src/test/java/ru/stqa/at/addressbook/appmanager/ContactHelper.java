@@ -68,6 +68,14 @@ public class ContactHelper extends HelperBase{
 		goToHomePage();
 	}
 
+	public void contactModification(int index, ContactData contact) {
+		checkCreatedContact(index);
+		initContactModification(index);
+		fillContactForm(contact, false);
+		submitContactModification();
+		goToHomePage();
+	}
+
 	public void goToHomePage() {
 		if (isElementPresent(By.id("maintainable"))) {
 			return;
