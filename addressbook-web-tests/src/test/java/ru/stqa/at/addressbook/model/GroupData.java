@@ -3,10 +3,11 @@ package ru.stqa.at.addressbook.model;
 import java.util.Objects;
 
 public class GroupData {
-	private int id = Integer.MAX_VALUE;;
+	private int id = Integer.MAX_VALUE;
 	private String groupName;
 	private String header;
 	private String footer;
+
 	public GroupData withId(int id) {
 		this.id = id;
 		return this;

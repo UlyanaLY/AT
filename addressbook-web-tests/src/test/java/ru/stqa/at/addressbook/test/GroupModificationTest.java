@@ -23,7 +23,7 @@ public class GroupModificationTest extends TestBase {
 
 		List<GroupData> before = app.group().list();
 		GroupData group = new GroupData()
-						.withId(before.get(before.size() - 1).getId()).withName( "friends").withHeader( "test2_header").withFooter( "test2_footer");
+						.withId(before.get(before.size() - 1).getId()).withName("friends").withHeader("test2_header").withFooter("test2_footer");
 		int index = before.size() - 1;
 		app.group().modify(group, index);
 		app.goTo().groupPage();

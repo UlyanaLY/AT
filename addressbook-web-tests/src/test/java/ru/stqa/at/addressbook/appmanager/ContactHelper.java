@@ -63,8 +63,9 @@ public class ContactHelper extends HelperBase{
 
 	public void create(ContactData contactData, boolean isCreated) {
 		click(By.linkText("add new"));
-	  fillContactForm(new ContactData("Ivan", "Ivanov", "099038, Crimea, Simferopol, Lenina 26-a",
-						"898978909889", "testing1@gmail.com", "friends"), isCreated);
+	  fillContactForm(new ContactData().withName("Ivan").withLastName( "Ivanov")
+						.withAddress( "099038, Crimea, Simferopol, Lenina 26-a").withPhone("898978909889")
+						.withEmail("testing1@gmail.com").withGroup("friends"), isCreated);
 		submitContactForm();
 	}
 
@@ -89,7 +90,7 @@ public class ContactHelper extends HelperBase{
 //			String contactPhone = element.findElement(By.cssSelector("td:nth-child(6)")).getText();
 
 			int id = Integer.parseInt(element.findElement(By.cssSelector("td:nth-child(1) > input")).getAttribute("value"));
-			ContactData contact = new ContactData(id, contactName, contactLastName, null, null, null, null);
+			ContactData contact = new ContactData().withId(id).withName(contactName).withLastName(contactLastName);
 			contacts.add(contact);
 		}
 		return contacts;

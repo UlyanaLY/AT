@@ -3,36 +3,48 @@ package ru.stqa.at.addressbook.model;
 import java.util.Objects;
 
 public class ContactData {
-	private  int id;
-	private final String contactName;
-	private final String contactLastName;
-	private final String contactAddress;
-	private final String contactPhone;
-	private final String contactEmail;
+	private int id = Integer.MAX_VALUE;
+	;
+	private String contactName;
+	private String contactLastName;
+	private String contactAddress;
+	private String contactPhone;
+	private String contactEmail;
 	private String group;
 
-	public ContactData(String contactName, String contactLastName, String contactAddress, String contactPhone, String contactEmail, String group) {
-		this.id = Integer.MAX_VALUE;
+	public ContactData withName(String contactName) {
 		this.contactName = contactName;
-		this.contactLastName = contactLastName;
-		this.contactAddress = contactAddress;
-		this.contactPhone = contactPhone;
-		this.contactEmail = contactEmail;
-		this.group = group;
+		return this;
 	}
 
-	public ContactData(int id, String contactName, String contactLastName, String contactAddress, String contactPhone, String contactEmail, String group) {
-		this.id = id;
-		this.contactName = contactName;
+	public ContactData withLastName(String contactLastName) {
 		this.contactLastName = contactLastName;
-		this.contactAddress = contactAddress;
-		this.contactPhone = contactPhone;
-		this.contactEmail = contactEmail;
-		this.group = group;
+		return this;
 	}
 
-	public void setId(int id) {
+	public ContactData withAddress(String contactAddress) {
+		this.contactAddress = contactAddress;
+		return this;
+	}
+
+	public ContactData withPhone(String contactPhone) {
+		this.contactPhone = contactPhone;
+		return this;
+	}
+
+	public ContactData withEmail(String contactEmail) {
+		this.contactEmail = contactEmail;
+		return this;
+	}
+
+	public ContactData withGroup(String group) {
+		this.group = group;
+		return this;
+	}
+
+	public ContactData withId(int id) {
 		this.id = id;
+		return this;
 	}
 
 	public int getId() {

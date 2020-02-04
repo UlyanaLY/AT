@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ContactCreationTest extends TestBase {
 
-	@Test(enabled=true)
+	@Test(enabled = true)
 	public void testContactCreation() {
 		app.goTo().groupPage();
 		if (app.group().list().size() == 0) {
@@ -18,8 +18,8 @@ public class ContactCreationTest extends TestBase {
 		}
 		app.goTo().contactPage();
 		List<ContactData> before = app.contact().list();
-		ContactData contact = new ContactData("Ivan", "Ivanov", "099038, Crimea, Simferopol, Lenina 26-a",
-						"898978909889", "testing1@gmail.com", "friends");
+		ContactData contact = new ContactData().withName("Ivan").withLastName("Ivanov").withAddress("099038, Crimea, Simferopol, Lenina 26-a")
+						.withPhone("898978909889").withEmail("testing1@gmail.com").withGroup("friends");
 		app.contact().create(contact, true);
 		app.goTo().contactPage();
 		List<ContactData> after = app.contact().list();
