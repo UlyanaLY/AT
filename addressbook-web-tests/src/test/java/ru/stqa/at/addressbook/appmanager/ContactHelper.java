@@ -61,11 +61,11 @@ public class ContactHelper extends HelperBase{
 		return isElementPresent(By.name("selected[]"));
 	}
 
-	public void createAContact(ContactData contactData, boolean isCreated) {
+	public void create(ContactData contactData, boolean isCreated) {
+		click(By.linkText("add new"));
 	  fillContactForm(new ContactData("Ivan", "Ivanov", "099038, Crimea, Simferopol, Lenina 26-a",
 						"898978909889", "testing1@gmail.com", "friends"), isCreated);
 		submitContactForm();
-		goToHomePage();
 	}
 
 	public void contactModification(int index, ContactData contact) {
@@ -73,17 +73,11 @@ public class ContactHelper extends HelperBase{
 		initContactModification(index);
 		fillContactForm(contact, false);
 		submitContactModification();
-		goToHomePage();
 	}
 
-	public void goToHomePage() {
-		if (isElementPresent(By.id("maintainable"))) {
-			return;
-		}
-		click(By.linkText("home"));
-	}
 
-	public List<ContactData> getContactList() {
+
+	public List<ContactData> list() {
 		List<ContactData> contacts = new ArrayList<ContactData>();
 		List<WebElement> elements = wd.findElements(By.name("entry"));
 

@@ -32,7 +32,7 @@ public class GroupHelper extends HelperBase{
 		click(By.name("edit"));
 	}
 
-	public void checkCreatedGroup(int index) {
+	public void select(int index) {
 		wd.findElements(By.name("selected[]")).get(index).click();
 	}
 
@@ -44,37 +44,31 @@ public class GroupHelper extends HelperBase{
 		click(By.name("update"));
 	}
 
-	public void createAGroup(GroupData group) {
+	public void create(GroupData group) {
 		initGroupCreation();
 		fillGroupForm(group);
 		submitGroupForm();
-		goToGroupPage();
-		checkCreatedGroup(0);
 	}
 
-	public void modifyGroup(GroupData group, int index) {
-		checkCreatedGroup(index);
+	public void modify(GroupData group, int index) {
+		select(index);
 		initGroupModification();
 		fillGroupForm(group);
 		submitGroupModification();
-		goToGroupPage();
 	}
 
-	public boolean isThereAGroup() {
-		return isElementPresent(By.name("selected[]"));
+	public void delete(int index) {
+		select(index);
+    deleteGroup();
 	}
 
-	public void goToGroupPage() {
-		if (isElementPresent(By.tagName("h1"))
-						&& wd.findElement(By.tagName("h1")).getText().equals("Groups")
-						&& isElementPresent(By.name("new"))) {
-			return;
-		} else {
-			click(By.linkText("groups"));
-		}
-	}
+//	//public boolean isThereAGroup() {
+//		return isElementPresent(By.name("selected[]"));
+//	}
 
-	public List<GroupData> getGroupList() {
+
+
+	public List<GroupData> list() {
 		List<GroupData> groups = new ArrayList<GroupData>();
 		List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));
 		for (WebElement element: elements) {
