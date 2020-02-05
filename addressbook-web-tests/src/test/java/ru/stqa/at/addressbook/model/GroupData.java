@@ -50,12 +50,13 @@ public class GroupData {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 		GroupData groupData = (GroupData) o;
-		return Objects.equals(groupName, groupData.groupName);
+		return id == groupData.id &&
+						Objects.equals(groupName, groupData.groupName);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(groupName);
+		return Objects.hash(id, groupName);
 	}
 
 	@Override
