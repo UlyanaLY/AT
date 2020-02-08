@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 public class ContactEmailTest extends TestBase {
 
 	@Test
-	public void testContactPhones() {
+	public void testContactEmails() {
 		app.goTo().contactPage();
 		ContactData contact = app.contact().allContacts().iterator().next();
 		ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact);

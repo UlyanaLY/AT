@@ -26,7 +26,7 @@ public class ContactData {
 		this.allEmails = allEmails;
 		return this;
 	}
-	
+
 	public ContactData withName(String contactName) {
 		this.contactName = contactName;
 

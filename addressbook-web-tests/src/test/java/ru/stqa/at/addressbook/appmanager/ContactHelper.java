@@ -111,17 +111,14 @@ public class ContactHelper extends HelperBase {
 		String email = wd.findElement(By.name("email")).getAttribute("value");
 		String email2 = wd.findElement(By.name("email2")).getAttribute("value");
 		String email3 = wd.findElement(By.name("email3")).getAttribute("value");
+		String address = wd.findElement(By.name("address")).getAttribute("value");
 		wd.navigate().back();
 
 		return new ContactData().withId(contact.getId()).withName(contactName).withLastName(contactLastName)
 						.withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work)
-						.withEmail(email).withEmail2(email2).withEmail3(email3);
+						.withEmail(email).withEmail2(email2).withEmail3(email3)
+		        .withAddress(address);
 	}
-
-//	private void initContactModificationById (int id){
-//		WebElement checkbox = wd.findElement(By.cssSelector(String.format("a[href='edit.php?Id=%s']", id))).click();
-//
-//	}
 
 	public List<ContactData> list() {
 		List<ContactData> contacts = new ArrayList<ContactData>();
@@ -149,7 +146,9 @@ public class ContactHelper extends HelperBase {
 			String allEmails = element.findElement(By.cssSelector("td:nth-child(5)")).getText();
 			String allPhones = element.findElement(By.cssSelector("td:nth-child(6)")).getText();
 			int id = Integer.parseInt(element.findElement(By.cssSelector("td:nth-child(1) > input")).getAttribute("value"));
-			contacts.add(new ContactData().withId(id).withName(contactName).withLastName(contactLastName).withAllPhones(allPhones).withAllEmails(allEmails));
+			contacts.add(new ContactData().withId(id).withName(contactName).withLastName(contactLastName)
+							.withAllPhones(allPhones).withAllEmails(allEmails)
+			        .withAddress(contactAddress));
 		}
 		return contacts;
 	}
