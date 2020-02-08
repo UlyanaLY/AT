@@ -12,6 +12,9 @@ public class ContactData {
 	private String work;
 	private String allPhones;
 	private String email;
+	private String email2;
+	private String email3;
+	private String allEmails;
 	private String group;
 
 	public ContactData withAllPhones(String allPhones) {
@@ -19,7 +22,11 @@ public class ContactData {
 		return this;
 	}
 
-
+	public ContactData withAllEmails(String allEmails) {
+		this.allEmails = allEmails;
+		return this;
+	}
+	
 	public ContactData withName(String contactName) {
 		this.contactName = contactName;
 
@@ -53,6 +60,16 @@ public class ContactData {
 
 	public ContactData withEmail(String contactEmail) {
 		this.email = contactEmail;
+		return this;
+	}
+
+	public ContactData withEmail2(String contactEmail2) {
+		this.email2 = contactEmail2;
+		return this;
+	}
+
+	public ContactData withEmail3(String contactEmail3) {
+		this.email3 = contactEmail3;
 		return this;
 	}
 
@@ -98,12 +115,24 @@ public class ContactData {
 		return email;
 	}
 
+	public String getEmail2() {
+		return email2;
+	}
+
+	public String getEmail3() {
+		return email3;
+	}
+
 	public String getGroup() {
 		return group;
 	}
 
 	public String getAllPhones() {
 		return allPhones;
+	}
+
+	public String getAllEmails() {
+		return allEmails;
 	}
 
 	@Override

@@ -9,24 +9,24 @@ import ru.stqa.at.addressbook.model.ContactData;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-public class ContactPhoneTest extends TestBase {
+public class ContactEmailTest extends TestBase {
 
 	@Test
 	public void testContactPhones() {
 		app.goTo().contactPage();
 		ContactData contact = app.contact().allContacts().iterator().next();
 		ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact);
-		assertThat(contact.getAllPhones(), equalTo(mergePhones(contactInfoFromEditForm)));
+		assertThat(contact.getAllEmails(), equalTo(mergeEmails(contactInfoFromEditForm)));
 	}
 
-	private String mergePhones(ContactData contact) {
-		return Arrays.asList(contact.getHomePhone(), contact.getMobilePhone(), contact.getWorkPhone())
+	private String mergeEmails(ContactData contact) {
+		return Arrays.asList(contact.getEmail(), contact.getEmail2(), contact.getEmail3())
 						.stream().filter((s) -> !s.equals(""))
 						.map(ContactPhoneTest::cleaned)
 						.collect(Collectors.joining("\n"));
 	}
 
-	public static String cleaned(String phone) {
-		return phone.replaceAll("\\s", "").replaceAll("[-()]", "");
+	public static String cleaned(String email) {
+		return email.replaceAll("\\s", "").replaceAll("[-()]", "");
 	}
 }
