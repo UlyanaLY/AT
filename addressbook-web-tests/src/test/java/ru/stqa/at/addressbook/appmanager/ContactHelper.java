@@ -52,9 +52,11 @@ public class ContactHelper extends HelperBase {
 		type(By.name("address"), contactdata.getContactAddress());
 		type(By.name("mobile"), contactdata.getHomePhone());
 		type(By.name("email"), contactdata.getEmail());
-
-		if (creation) {
-			new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactdata.getGroup());
+		attach(By.name("photo"), contactdata.getPhoto());
+		if (creation ) {
+			if (contactdata.getGroup()!=null) {
+				new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactdata.getGroup());
+			}
 		} else {
 			Assert.assertFalse(isElementPresent(By.name("new_group")));
 		}
@@ -82,9 +84,10 @@ public class ContactHelper extends HelperBase {
 
 	public void create(ContactData contactData, boolean isCreated) {
 		click(By.linkText("add new"));
-		fillContactForm(new ContactData().withName("Ivan").withLastName("Ivanov")
-						.withAddress("099038, Crimea, Simferopol, Lenina 26-a").withHomePhone("898978909889")
-						.withEmail("testing1@gmail.com").withGroup("friends"), isCreated);
+		fillContactForm(contactData, true);
+//		fillContactForm(new ContactData().withName("Ivan").withLastName("Ivanov")
+//						.withAddress("099038, Crimea, Simferopol, Lenina 26-a").withHomePhone("898978909889")
+//						.withEmail("testing1@gmail.com").withGroup("friends"), isCreated);
 		submitContactForm();
 		contactCache = null;
 	}
