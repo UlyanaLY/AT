@@ -1,0 +1,34 @@
+<list>
+  <contact>
+    <contactName>Ivan 0</contactName>
+    <contactLastName>Ivanov 0</contactLastName>
+    <contactAddress>099038, Crimea, Simferopol, Lenina 0</contactAddress>
+    <home>099038, Crimea, Simferopol, Lenina 0</home>
+    <email>testing0@gmail.com</email>
+    <photo>src/test/resources/image.jpg</photo>
+  </contact>
+  <contact>
+    <contactName>Ivan 1</contactName>
+    <contactLastName>Ivanov 1</contactLastName>
+    <contactAddress>099038, Crimea, Simferopol, Lenina 1</contactAddress>
+    <home>099038, Crimea, Simferopol, Lenina 1</home>
+    <email>testing1@gmail.com</email>
+    <photo>src/test/resources/image.jpg</photo>
+  </contact>
+  <contact>
+    <contactName>Ivan 2</contactName>
+    <contactLastName>Ivanov 2</contactLastName>
+    <contactAddress>099038, Crimea, Simferopol, Lenina 2</contactAddress>
+    <home>099038, Crimea, Simferopol, Lenina 2</home>
+    <email>testing2@gmail.com</email>
+    <photo>src/test/resources/image.jpg</photo>
+  </contact>
+  <contact>
+    <contactName>Ivan 3</contactName>
+    <contactLastName>Ivanov 3</contactLastName>
+    <contactAddress>099038, Crimea, Simferopol, Lenina 3</contactAddress>
+    <home>099038, Crimea, Simferopol, Lenina 3</home>
+    <email>testing3@gmail.com</email>
+    <photo>src/test/resources/image.jpg</photo>
+  </contact>
+</list>

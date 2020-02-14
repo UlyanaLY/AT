@@ -8,6 +8,7 @@ import org.testng.Assert;
 import ru.stqa.at.addressbook.model.ContactData;
 import ru.stqa.at.addressbook.model.Contacts;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -52,7 +53,7 @@ public class ContactHelper extends HelperBase {
 		type(By.name("address"), contactdata.getContactAddress());
 		type(By.name("mobile"), contactdata.getHomePhone());
 		type(By.name("email"), contactdata.getEmail());
-		attach(By.name("photo"), contactdata.getPhoto());
+		attach(By.name("photo"), new File(contactdata.getPhoto()));
 		if (creation ) {
 			if (contactdata.getGroup()!=null) {
 				new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactdata.getGroup());
