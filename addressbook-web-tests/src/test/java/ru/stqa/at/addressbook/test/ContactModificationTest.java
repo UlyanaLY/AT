@@ -26,7 +26,7 @@ public class ContactModificationTest extends TestBase {
 		Contacts before = app.contact().all();
 		ContactData modifiedContact = before.iterator().next();
 		ContactData contact = new ContactData().withId(modifiedContact.getId()).withName("Ivan").withLastName("Ivanov2")
-						.withAddress("099031, Crimea, Kerch, Lenina 26-a").withHomePhone("898978909881").withEmail("testing123@gmail.com");
+						.withAddress("099031, Crimea, Kerch, Lenina 26-a").withHomePhone("898978909881").withEmail("testing123@gmail.com").withPhoto("src/test/resources/image.jpg");
 		app.contact().modify( contact);
 		app.goTo().contactPage();
 		assertThat(app.contact().count(), equalTo(before.size()));
