@@ -1,0 +1,6 @@
+//указать системное свойство VM
+ea -Dbrowser=firefox
+//указать свойство для конфига JVM из gradle
+gradlew -Pbrowser=chrome testContacts
+//пример запуска тестов для локального окружения
+gradlew -Ptarget=local testContacts

@@ -1,0 +1,34 @@
+[
+  {
+    "contactName": "Ivan 0",
+    "contactLastName": "Ivanov 0",
+    "contactAddress": "099038, Crimea, Simferopol, Lenina 0",
+    "home": "099038, Crimea, Simferopol, Lenina 0",
+    "email": "testing0@gmail.com",
+    "photo": "src/test/resources/image.jpg"
+  },
+  {
+    "contactName": "Ivan 1",
+    "contactLastName": "Ivanov 1",
+    "contactAddress": "099038, Crimea, Simferopol, Lenina 1",
+    "home": "099038, Crimea, Simferopol, Lenina 1",
+    "email": "testing1@gmail.com",
+    "photo": "src/test/resources/image.jpg"
+  },
+  {
+    "contactName": "Ivan 2",
+    "contactLastName": "Ivanov 2",
+    "contactAddress": "099038, Crimea, Simferopol, Lenina 2",
+    "home": "099038, Crimea, Simferopol, Lenina 2",
+    "email": "testing2@gmail.com",
+    "photo": "src/test/resources/image.jpg"
+  },
+  {
+    "contactName": "Ivan 3",
+    "contactLastName": "Ivanov 3",
+    "contactAddress": "099038, Crimea, Simferopol, Lenina 3",
+    "home": "099038, Crimea, Simferopol, Lenina 3",
+    "email": "testing3@gmail.com",
+    "photo": "src/test/resources/image.jpg"
+  }
+]

@@ -16,6 +16,7 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.*;
 
 public class GroupCreationTest extends TestBase {
+
 	@DataProvider
 	public Iterator<Object[]> validGroupsFromXml() throws IOException {
 		try(BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.xml")))) {
@@ -34,6 +35,7 @@ public class GroupCreationTest extends TestBase {
 
 	@DataProvider
 	public Iterator<Object[]> validGroupsFromJson() throws IOException {
+
 		try(BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.json")))) {
 			String json = "";
 			String line = reader.readLine();
@@ -46,6 +48,7 @@ public class GroupCreationTest extends TestBase {
 			}.getType());
 			return groups.stream().map((g) -> new Object[]{g}).collect(Collectors.toList()).iterator();
 		}
+
 	}
 
 	@Test(dataProvider = "validGroupsFromJson")
