@@ -86,9 +86,6 @@ public class ContactHelper extends HelperBase {
 	public void create(ContactData contactData, boolean isCreated) {
 		click(By.linkText("add new"));
 		fillContactForm(contactData, true);
-//		fillContactForm(new ContactData().withName("Ivan").withLastName("Ivanov")
-//						.withAddress("099038, Crimea, Simferopol, Lenina 26-a").withHomePhone("898978909889")
-//						.withEmail("testing1@gmail.com").withGroup("friends"), isCreated);
 		submitContactForm();
 		contactCache = null;
 	}

@@ -37,15 +37,15 @@ public class ContactCreationTest extends TestBase {
 	@Test(dataProvider = "validContactsFromXml")
 	public void testContactCreation(ContactData contact) {
 		app.goTo().groupPage();
-		if (app.group().all().size() == 0) {
+		if (app.db().groups().size() == 0) {
 			app.group().create(new GroupData().withName("friends"));
 		}
 		app.goTo().contactPage();
-		Contacts before = app.contact().all();
+		Contacts before = app.db().contacts();
 		app.contact().create(contact, true);
 		app.goTo().contactPage();
 		assertThat(app.contact().count(), equalTo(before.size() + 1));
-		Contacts after = app.contact().all();
+		Contacts after = app.db().contacts();
 		assertThat(after, equalTo(before.withAdded(contact.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
 	}
 }
