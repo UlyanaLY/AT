@@ -32,4 +32,21 @@ task TestContacts(type: Test) {
     if (project.hasProperty("target")) {
         systemProperty 'target', "${target}"
     }
+    if (project.hasProperty("verifyUi")) {
+        systemProperty 'verifyUi', "${verifyUi}"
+    }
+}
+task TestGroups(type: Test) {
+    useTestNG {
+        suites 'src/test/resources/testng-groups.xml'
+    }
+    if (project.hasProperty("browser")) {
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty("target")) {
+        systemProperty 'target', "${target}"
+    }
+    if (project.hasProperty("verifyUi")) {
+        systemProperty 'verifyUi', "${verifyUi}"
+    }
 }
