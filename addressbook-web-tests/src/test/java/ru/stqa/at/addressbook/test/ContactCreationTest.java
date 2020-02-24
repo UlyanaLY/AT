@@ -11,6 +11,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,7 +23,7 @@ import static org.hamcrest.MatcherAssert.*;
 public class ContactCreationTest extends TestBase {
 	@DataProvider
 	public Iterator<Object[]> validContactsFromXml() throws IOException {
-		try(BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/contacts.xml")))) {
+		try (BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/contacts.xml")))) {
 			String xml = "";
 			String line = reader.readLine();
 			while (line != null) {
@@ -38,8 +40,11 @@ public class ContactCreationTest extends TestBase {
 	@Test(dataProvider = "validContactsFromXml")
 	public void testContactCreation(ContactData contact) {
 		app.goTo().groupPage();
+
 		if (app.db().groups().size() == 0) {
-			app.group().create(new GroupData().withName("friends"));
+			String dateString = new SimpleDateFormat("yyyy-MM-dd-hh-mm-ss").format(new Date());
+			app.group().create(new GroupData().withName("test" + dateString
+			));
 		}
 		Groups groups = app.db().groups();
 		app.goTo().contactPage();

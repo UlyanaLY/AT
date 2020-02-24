@@ -12,7 +12,9 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class GroupDataGenerator {
@@ -79,7 +81,8 @@ public class GroupDataGenerator {
 	private List<GroupData> generateGroups(int count) {
 		List<GroupData> groups = new ArrayList<GroupData>();
 		for (int i = 0; i < count; i++) {
-			groups.add(new GroupData().withName(String.format("test %s", i))
+			String dateString = new SimpleDateFormat("yyyy-MM-dd-hh-mm-ss").format(new Date());
+			groups.add(new GroupData().withName(String.format("test %s_" + dateString, i))
 							.withHeader(String.format("header %s", i)).withFooter(String.format("footer %s", i)));
 		}
 		return groups;

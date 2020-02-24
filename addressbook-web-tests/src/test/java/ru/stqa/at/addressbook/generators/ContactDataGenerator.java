@@ -72,7 +72,8 @@ public class ContactDataGenerator {
 		for (int i = 0; i < count; i++) {
 			contacts.add(new ContactData().withName(String.format("Ivan %s", i))
 							.withLastName(String.format("Ivanov %s", i)).withAddress(String.format("099038, Crimea, Simferopol, Lenina %s", i))
-							.withHomePhone(String.format("099038, Crimea, Simferopol, Lenina %s", i)).withEmail(String.format("testing%s@gmail.com", i)).withPhoto("src/test/resources/image.jpg"));
+							.withHomePhone(String.format("099038, Crimea, Simferopol, Lenina %s", i)).withEmail(String.format("testing%s@gmail.com", i))
+							.withPhoto("src/test/resources/image.jpg"));
 		}
 		return contacts;
 	}

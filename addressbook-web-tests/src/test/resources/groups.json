@@ -1,17 +1,12 @@
 [
   {
-    "groupName": "test 0",
+    "groupName": "test 0_2020-02-23-10-17-49",
     "header": "header 0",
     "footer": "footer 0"
   },
   {
-    "groupName": "test 1",
+    "groupName": "test 1_2020-02-23-10-17-49",
     "header": "header 1",
     "footer": "footer 1"
-  },
-  {
-    "groupName": "test 2",
-    "header": "header 2",
-    "footer": "footer 2"
   }
 ]

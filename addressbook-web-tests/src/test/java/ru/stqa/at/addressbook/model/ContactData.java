@@ -240,4 +240,18 @@ public class ContactData {
 		groups.add(group);
 		return this;
 	}
+
+	private Object readResolve() {
+		groups = new HashSet<GroupData>();
+		return this;
+	}
+
+	public boolean hasGroup(GroupData group) {
+		for(ContactData contact : group.getContacts()){
+			if(contact.getId() == this.getId()){
+				return true;
+			}
+		}
+		return false;
+	}
 }

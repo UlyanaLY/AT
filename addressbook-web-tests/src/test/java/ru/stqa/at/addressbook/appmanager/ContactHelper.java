@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.at.addressbook.model.ContactData;
 import ru.stqa.at.addressbook.model.Contacts;
+import ru.stqa.at.addressbook.model.GroupData;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -56,7 +57,7 @@ public class ContactHelper extends HelperBase {
 		attach(By.name("photo"), new File(contactdata.getPhoto()));
 		if (creation ) {
 			if (contactdata.getGroups().size()>0) {
-				Assert.assertTrue(contactdata.getGroups().size()==0);
+				Assert.assertTrue(contactdata.getGroups().size()==1);
 				new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactdata.getGroups().iterator().next().getGroupName());
 			}
 		} else {
@@ -173,5 +174,28 @@ public class ContactHelper extends HelperBase {
 			contactCache.add(contact);
 		}
 		return new Contacts(contactCache);
+	}
+
+	public void addContactInGroup(ContactData contact, GroupData group) {
+		selectContactById(contact.getId());
+		System.out.println("9999");
+		//wd.findElement(By.name("to_group")).click();
+		System.out.println("9999");
+		Select drpGroups = new Select(wd.findElement(By.name("to_group")));
+		drpGroups.selectByVisibleText(group.getGroupName());
+		wd.findElement(By.name("add")).click();
+		System.out.println("9999");
+	}
+
+	public void deleteContactFromGroup(ContactData contact, GroupData group) {
+		selectContactById(contact.getId());
+		System.out.println("9999");
+		//wd.findElement(By.name("to_group")).click();
+		System.out.println("9999");
+		Select drpGroupsFilter = new Select(wd.findElement(By.name("group")));
+		drpGroupsFilter.selectByVisibleText(group.getGroupName());
+		selectContactById(contact.getId());
+		wd.findElement(By.name("remove")).click();
+		System.out.println("9999");
 	}
 }

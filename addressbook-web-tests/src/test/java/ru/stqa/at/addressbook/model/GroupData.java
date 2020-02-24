@@ -100,4 +100,13 @@ public class GroupData {
 						", groupName='" + groupName + '\'' +
 						'}';
 	}
+
+	public boolean hasContact(ContactData contact) {
+		for(GroupData group : contact.getGroups()){
+			if(group.getId() == this.getId()){
+				return true;
+			}
+		}
+		return false;
+	}
 }
