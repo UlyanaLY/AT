@@ -24,9 +24,9 @@ public class DeleteContactFromGroup extends TestBase {
 							.withHomePhone("89789098900").withEmail("testing@gmail.com")
 							.withPhoto("src/test/resources/image.jpg"), true);
 		}
-		if (app.db().contacts().size() == 0) {
+		if (app.db().groups().size() == 0) {
 			app.goTo().groupPage();
-			String dateString = new SimpleDateFormat("yyyy-MM-dd-hh-mm-ss").format(new Date());
+			String dateString = new SimpleDateFormat("MM-dd-hh-mm-ss").format(new Date());
 			app.group().create(new GroupData().withName("test" + dateString
 			));
 		}
@@ -48,9 +48,12 @@ public class DeleteContactFromGroup extends TestBase {
 		Groups contactGroupsBefore = newContact.getGroups();
 
 		app.goTo().contactPage();
+		GroupData groupWithoutContact = newContact.getGroups().iterator().next();
 		app.contact().deleteContactFromGroup(contactToGroup, newContact.getGroups().iterator().next());
 
 		Groups contactGroupsAfter = app.db().GetContactDataById(contactId).getGroups();
-		assertThat(contactGroupsBefore.size()-1, equalTo(contactGroupsAfter.size()));
+		assertThat(contactGroupsBefore.size() - 1, equalTo(contactGroupsAfter.size()));
+
+		assertThat(contactGroupsAfter, equalTo(contactGroupsBefore.without(groupWithoutContact)));
 	}
 }

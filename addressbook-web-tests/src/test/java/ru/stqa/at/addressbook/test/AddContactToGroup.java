@@ -46,10 +46,12 @@ public class AddContactToGroup extends TestBase {
 		}
 
 		Groups contactGroupsBefore = contactToGroup.getGroups();
+		GroupData groupWithContact = new GroupData();
 		for (GroupData group : app.db().groups()) {
 			if (!group.hasContact(contactToGroup)) {
 				app.goTo().contactPage();
 				app.contact().addContactInGroup(contactToGroup, group);
+				groupWithContact = group;
 				break;
 			} else if (group.hasContact(contactToGroup)) {
 				continue;
@@ -61,5 +63,6 @@ public class AddContactToGroup extends TestBase {
 		ContactData newContact = app.db().GetContactDataById(contactToGroup.getId());
 		Groups contactGroupsAfter = newContact.getGroups();
 		assertThat(contactGroupsBefore.size() + 1, equalTo(contactGroupsAfter.size()));
+		assertThat(contactGroupsAfter, equalTo(contactGroupsBefore.withAdded(groupWithContact)));
 	}
 }
