@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class ApplicationManager {
-  private final Properties properties;
+	private final Properties properties;
 	protected WebDriver wd;
 	private String browser;
 
@@ -26,10 +26,30 @@ public class ApplicationManager {
 		String target = System.getProperty("target", "local");
 		properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
 
+		if (browser.equals(BrowserType.CHROME)) {
+			System.setProperty("webdriver.chrome.driver", properties.getProperty("web.chromeDriverPath"));
+			wd = new ChromeDriver();
+		} else if (browser.equals(BrowserType.IE)) {
+			System.setProperty("webdriver.ie.driver", properties.getProperty("web.fireFoxDriverPath"));
+			wd = new InternetExplorerDriver();
+			wd.manage().window().maximize();
+		} else if (browser.equals(BrowserType.FIREFOX)) {
+			System.setProperty("webdriver.gecko.driver", properties.getProperty("web.ieDriverPath"));
+			wd = new FirefoxDriver();
+		}
+
 		wd.get(properties.getProperty("web.baseUrl"));
 	}
 
 	public void stop() {
 		wd.quit();
+	}
+
+	public HttpSession newSession() {
+		return new HttpSession(this);
+	}
+
+	public String getProperty(String key) {
+		return properties.getProperty(key);
 	}
 }
