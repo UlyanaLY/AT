@@ -10,11 +10,13 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.regex.MatchResult;
 
 public class ApplicationManager {
 	private final Properties properties;
-	protected WebDriver wd;
+	private WebDriver wd;
 	private String browser;
+	private RegistrationHelper registrationHelper;
 
 
 	public ApplicationManager(String browser) {
@@ -25,24 +27,13 @@ public class ApplicationManager {
 	public void init() throws IOException {
 		String target = System.getProperty("target", "local");
 		properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
-
-		if (browser.equals(BrowserType.CHROME)) {
-			System.setProperty("webdriver.chrome.driver", properties.getProperty("web.chromeDriverPath"));
-			wd = new ChromeDriver();
-		} else if (browser.equals(BrowserType.IE)) {
-			System.setProperty("webdriver.ie.driver", properties.getProperty("web.fireFoxDriverPath"));
-			wd = new InternetExplorerDriver();
-			wd.manage().window().maximize();
-		} else if (browser.equals(BrowserType.FIREFOX)) {
-			System.setProperty("webdriver.gecko.driver", properties.getProperty("web.ieDriverPath"));
-			wd = new FirefoxDriver();
-		}
-
-		wd.get(properties.getProperty("web.baseUrl"));
+		//wd.get(properties.getProperty("web.baseUrl"));
 	}
 
 	public void stop() {
-		wd.quit();
+		if( wd != null ) {
+			wd.quit();
+		}
 	}
 
 	public HttpSession newSession() {
@@ -51,5 +42,29 @@ public class ApplicationManager {
 
 	public String getProperty(String key) {
 		return properties.getProperty(key);
+	}
+
+	public RegistrationHelper registration() {
+		if(registrationHelper==null){
+			registrationHelper = new RegistrationHelper(this);
+		}	
+		return registrationHelper;
+	}
+
+	public WebDriver getDriver() {
+		if( wd == null ) {
+			if (browser.equals(BrowserType.CHROME)) {
+				System.setProperty("webdriver.chrome.driver", properties.getProperty("web.chromeDriverPath"));
+				wd = new ChromeDriver();
+			} else if (browser.equals(BrowserType.IE)) {
+				System.setProperty("webdriver.ie.driver", properties.getProperty("web.fireFoxDriverPath"));
+				wd = new InternetExplorerDriver();
+				wd.manage().window().maximize();
+			} else if (browser.equals(BrowserType.FIREFOX)) {
+				System.setProperty("webdriver.gecko.driver", properties.getProperty("web.ieDriverPath"));
+				wd = new FirefoxDriver();
+			}
+		}
+		return wd;
 	}
 }
