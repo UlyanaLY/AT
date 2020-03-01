@@ -17,6 +17,9 @@ public class ApplicationManager {
 	private WebDriver wd;
 	private String browser;
 	private RegistrationHelper registrationHelper;
+	private FtpHelper ftp;
+	private MailHelper mailHelper;
+	private JamesHelper jamesHelper;
 
 
 	public ApplicationManager(String browser) {
@@ -27,7 +30,6 @@ public class ApplicationManager {
 	public void init() throws IOException {
 		String target = System.getProperty("target", "local");
 		properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
-		//wd.get(properties.getProperty("web.baseUrl"));
 	}
 
 	public void stop() {
@@ -51,6 +53,14 @@ public class ApplicationManager {
 		return registrationHelper;
 	}
 
+	public FtpHelper ftp() {
+		if (ftp == null) {
+			ftp = new FtpHelper(this);
+		}
+
+		return ftp;
+	}
+
 	public WebDriver getDriver() {
 		if( wd == null ) {
 			if (browser.equals(BrowserType.CHROME)) {
@@ -66,5 +76,19 @@ public class ApplicationManager {
 			}
 		}
 		return wd;
+	}
+
+	public MailHelper mail () {
+		if (mailHelper == null) {
+			mailHelper = new MailHelper(this);
+		}
+		return mailHelper;
+	}
+
+	public JamesHelper James() {
+		if (jamesHelper == null) {
+			jamesHelper = new JamesHelper(this);
+		}
+    return jamesHelper;
 	}
 }
