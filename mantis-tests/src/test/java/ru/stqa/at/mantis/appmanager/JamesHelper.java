@@ -66,7 +66,7 @@ public class JamesHelper {
 
 		readUntil("Login id:");
 		write("");
-		readUntil("Password");
+		readUntil("Password:");
 		write("");
 
 		readUntil("Login id:");
