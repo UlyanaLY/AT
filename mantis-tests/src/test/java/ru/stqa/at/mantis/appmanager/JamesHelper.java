@@ -38,15 +38,15 @@ public class JamesHelper {
 
 	public void createUser(String name, String password) {
 		initTelnetSession();
-		write("adduser " + name);
+		write("adduser " + name + " " + password);
 		String result = readUntil("User " + name + " added");
 		closeTelnetSession();
 	}
 
-	public void deleteUser(String name, String password) {
+	public void deleteUser(String name) {
 		initTelnetSession();
-		write("adduser " + name);
-		String result = readUntil("User " + name + " added");
+		write("deluser " + name);
+		String result = readUntil("User " + name + " deleted");
 		closeTelnetSession();
 	}
 
@@ -71,7 +71,7 @@ public class JamesHelper {
 
 		readUntil("Login id:");
 		write(login);
-		readUntil("Password");
+		readUntil("Password:");
 		write(password);
 
 		readUntil("Welcome " + login + " . HELP for a list of commands");
@@ -102,6 +102,8 @@ public class JamesHelper {
 	private void write(String value) {
 		try {
 			out.println(value);
+			out.flush();
+			System.out.println(value);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
