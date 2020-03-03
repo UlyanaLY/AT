@@ -16,7 +16,6 @@ public class TestBase {
 
 	@BeforeSuite(alwaysRun = true)
 	public void setUp() throws IOException {
-
 		app.init();
 		app.ftp().upload(new File("src/test/resources/config_inc.php"), "config_inc.php", "config_inc.php.back");
 	}
