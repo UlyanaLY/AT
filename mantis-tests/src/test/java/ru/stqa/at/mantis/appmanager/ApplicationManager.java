@@ -10,7 +10,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
-import java.util.regex.MatchResult;
 
 public class ApplicationManager {
 	private final Properties properties;
@@ -33,7 +32,7 @@ public class ApplicationManager {
 	}
 
 	public void stop() {
-		if( wd != null ) {
+		if (wd != null) {
 			wd.quit();
 		}
 	}
@@ -47,9 +46,9 @@ public class ApplicationManager {
 	}
 
 	public RegistrationHelper registration() {
-		if(registrationHelper==null){
+		if (registrationHelper == null) {
 			registrationHelper = new RegistrationHelper(this);
-		}	
+		}
 		return registrationHelper;
 	}
 
@@ -62,7 +61,7 @@ public class ApplicationManager {
 	}
 
 	public WebDriver getDriver() {
-		if( wd == null ) {
+		if (wd == null) {
 			if (browser.equals(BrowserType.CHROME)) {
 				System.setProperty("webdriver.chrome.driver", properties.getProperty("web.chromeDriverPath"));
 				wd = new ChromeDriver();
@@ -78,7 +77,7 @@ public class ApplicationManager {
 		return wd;
 	}
 
-	public MailHelper mail () {
+	public MailHelper mail() {
 		if (mailHelper == null) {
 			mailHelper = new MailHelper(this);
 		}
@@ -89,6 +88,6 @@ public class ApplicationManager {
 		if (jamesHelper == null) {
 			jamesHelper = new JamesHelper(this);
 		}
-    return jamesHelper;
+		return jamesHelper;
 	}
 }
