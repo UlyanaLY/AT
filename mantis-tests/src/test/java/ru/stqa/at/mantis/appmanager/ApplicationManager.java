@@ -10,17 +10,16 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
-import java.util.regex.MatchResult;
 
 public class ApplicationManager {
 	private final Properties properties;
 	private WebDriver wd;
 	private String browser;
 	private RegistrationHelper registrationHelper;
+	private UsersHelper usersHelper;
 	private FtpHelper ftp;
 	private MailHelper mailHelper;
-	private JamesHelper jamesHelper;
-
+	private DbHelper dbHelper;
 
 	public ApplicationManager(String browser) {
 		this.browser = browser;
@@ -85,10 +84,17 @@ public class ApplicationManager {
 		return mailHelper;
 	}
 
-	public JamesHelper James() {
-		if (jamesHelper == null) {
-			jamesHelper = new JamesHelper(this);
+	public UsersHelper usersHelper() {
+		if (usersHelper == null) {
+			usersHelper = new UsersHelper(this);
 		}
-    return jamesHelper;
+		return usersHelper;
+	}
+
+	public DbHelper db() {
+		if (dbHelper ==null){
+			dbHelper = new DbHelper(this);
+		}
+		return dbHelper;
 	}
 }
