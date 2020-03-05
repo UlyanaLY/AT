@@ -58,11 +58,4 @@ public class DbHelper {
 		session.close();
 		return cData;
 	}
-
-//	public boolean groupHasContact(ContactData contact)
-//	{
-//		Session session = sessionFactory.openSession();
-//		session.beginTransaction();
-//
-//	}
 }

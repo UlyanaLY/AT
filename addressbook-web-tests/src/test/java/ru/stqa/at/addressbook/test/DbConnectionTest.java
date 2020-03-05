@@ -1,6 +1,5 @@
 package ru.stqa.at.addressbook.test;
 
-import com.mysql.cj.protocol.Resultset;
 import org.testng.annotations.Test;
 import ru.stqa.at.addressbook.model.GroupData;
 import ru.stqa.at.addressbook.model.Groups;

@@ -178,24 +178,16 @@ public class ContactHelper extends HelperBase {
 
 	public void addContactInGroup(ContactData contact, GroupData group) {
 		selectContactById(contact.getId());
-		System.out.println("9999");
-		//wd.findElement(By.name("to_group")).click();
-		System.out.println("9999");
 		Select drpGroups = new Select(wd.findElement(By.name("to_group")));
 		drpGroups.selectByVisibleText(group.getGroupName());
 		wd.findElement(By.name("add")).click();
-		System.out.println("9999");
 	}
 
 	public void deleteContactFromGroup(ContactData contact, GroupData group) {
 		selectContactById(contact.getId());
-		System.out.println("9999");
-		//wd.findElement(By.name("to_group")).click();
-		System.out.println("9999");
 		Select drpGroupsFilter = new Select(wd.findElement(By.name("group")));
 		drpGroupsFilter.selectByVisibleText(group.getGroupName());
 		selectContactById(contact.getId());
 		wd.findElement(By.name("remove")).click();
-		System.out.println("9999");
 	}
 }
