@@ -27,7 +27,7 @@ public class ChangePasswordByAdminTests extends TestBase {
 		System.out.println(user.getId());
 		app.usersHelper().start("administrator", "root");
 		app.usersHelper().resetPassword(Integer.toString(user.getId()));
-		
+
 		List<MailMessage> mailMessages = app.mail().waitForMail(1, 50000);
 		String confirmationLink = findConfirmationLink(mailMessages, user.getEmail());
 		System.out.println(confirmationLink);
