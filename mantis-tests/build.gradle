@@ -30,3 +30,7 @@ test {
         systemProperty 'verifyUi', "${verifyUi}"
     }
 }
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
