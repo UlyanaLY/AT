@@ -2,8 +2,8 @@ package ru.stqa.at.rest;
 
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
-import org.apache.http.client.fluent.Request;
-import org.apache.http.message.BasicNameValuePair;
+import com.jayway.restassured.RestAssured;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -11,7 +11,11 @@ import java.util.Set;
 
 import static org.testng.Assert.assertEquals;
 
-public class RestTests extends TestBase {
+public class RestAssuredTests extends TestBase {
+    @BeforeClass
+    public void init() {
+        RestAssured.authentication = RestAssured.basic("288f44776e7bec4bf44fdfeb1e646490", "");
+    }
     @Test
     public void testCreateIssue() throws IOException {
         Set<Issue> oldIssues = getIssues();
@@ -25,25 +29,19 @@ public class RestTests extends TestBase {
 
     protected Set<Issue> getIssues() throws IOException {
 
-        String json = getExecutor().execute(Request.Get("https://bugify.stqa.ru/api/issues.json?limit=500"))
-                .returnContent().asString();
+        String json = RestAssured.get("https://bugify.stqa.ru/api/issues.json?limit=500").asString();
         JsonElement parsed = new JsonParser().parse(json);
         JsonElement issues = parsed.getAsJsonObject().get("issues");
         return new Gson().fromJson(issues, new TypeToken<Set<Issue>>() {
         }.getType());
     }
 
-
-
-
     protected int createIssue(Issue newIssue) throws IOException {
-        String json = getExecutor().execute(Request.Post("https://bugify.stqa.ru/api/issues.json").bodyForm(new BasicNameValuePair("subject", newIssue.getSubject()),
-                new BasicNameValuePair("description", newIssue.getDescription()),
-                new BasicNameValuePair("state", newIssue.getState()),
-                new BasicNameValuePair("state_name", newIssue.getState_name())
+        String json = RestAssured.given()
+                .parameter("subject", newIssue.getSubject())
+                .parameter("description", newIssue.getDescription())
+                .post("https://bugify.stqa.ru/api/issues.json").asString();
 
-        ))
-                .returnContent().asString();
         JsonElement parsed = new JsonParser().parse(json);
         return parsed.getAsJsonObject().get("issue_id").getAsInt();
     }
