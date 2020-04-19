@@ -33,9 +33,6 @@ public class RestTests extends TestBase {
         }.getType());
     }
 
-
-
-
     protected int createIssue(Issue newIssue) throws IOException {
         String json = getExecutor().execute(Request.Post("https://bugify.stqa.ru/api/issues.json").bodyForm(new BasicNameValuePair("subject", newIssue.getSubject()),
                 new BasicNameValuePair("description", newIssue.getDescription()),

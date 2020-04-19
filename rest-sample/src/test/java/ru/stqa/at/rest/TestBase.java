@@ -37,8 +37,4 @@ public class TestBase {
         return state;
 
     }
-
-
-
-
 }
