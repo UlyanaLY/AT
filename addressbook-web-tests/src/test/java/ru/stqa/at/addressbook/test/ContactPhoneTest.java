@@ -6,12 +6,13 @@ import static org.hamcrest.MatcherAssert.*;
 import org.testng.annotations.Test;
 import ru.stqa.at.addressbook.model.ContactData;
 
+import java.io.File;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public class ContactPhoneTest extends TestBase {
 
-	@Test
+	@Test(enabled=true)
 	public void testContactPhones() {
 		app.goTo().contactPage();
 		ContactData contact = app.contact().allContacts().iterator().next();
@@ -28,5 +29,11 @@ public class ContactPhoneTest extends TestBase {
 
 	public static String cleaned(String phone) {
 		return phone.replaceAll("\\s", "").replaceAll("[-()]", "");
+	}
+
+
+	@Test
+	public void SearchForWorkDir(){
+		File currentDir = new File(".");
 	}
 }
