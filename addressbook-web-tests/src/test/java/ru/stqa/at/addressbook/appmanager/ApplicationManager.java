@@ -52,6 +52,7 @@ public class ApplicationManager {
 		} else {
 			DesiredCapabilities capabilities = new DesiredCapabilities();
 			capabilities.setCapability("chrome.binary", properties.getProperty("web.chromeDriverPath"));
+			capabilities.setCapability("version", properties.getProperty("81.0.4044.122"));
 			capabilities.setBrowserName(browser);
 			wd = new RemoteWebDriver(new URL(properties.getProperty("selenium.server")), capabilities);
 		}
