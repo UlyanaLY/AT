@@ -52,9 +52,9 @@ public class ApplicationManager {
 		} else {
 			DesiredCapabilities capabilities = new DesiredCapabilities();
 			capabilities.setBrowserName(browser);
+			capabilities.setCapability("chrome.binary", "web.chromeDriverPath");
 			wd = new RemoteWebDriver(new URL(properties.getProperty("selenium.server")), capabilities);
 		}
-
 
 		wd.get(properties.getProperty("web.baseUrl"));
 		groupHelper = new GroupHelper(wd);
