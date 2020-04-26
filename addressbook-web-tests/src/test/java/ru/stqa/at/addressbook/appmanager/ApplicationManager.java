@@ -1,14 +1,18 @@
 package ru.stqa.at.addressbook.appmanager;
 
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.BrowserType;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Properties;
 
 public class ApplicationManager {
@@ -32,17 +36,25 @@ public class ApplicationManager {
 		properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
 
 		dbHelper = new DbHelper();
-		if (browser.equals(BrowserType.CHROME)) {
-			System.setProperty("webdriver.chrome.driver", properties.getProperty("web.chromeDriverPath"));
-			wd = new ChromeDriver();
-		} else if (browser.equals(BrowserType.IE)) {
-			System.setProperty("webdriver.ie.driver", properties.getProperty("web.ieDriverPath"));
-			wd = new InternetExplorerDriver();
-			wd.manage().window().maximize();
-		} else if (browser.equals(BrowserType.FIREFOX)) {
-			System.setProperty("webdriver.gecko.driver", properties.getProperty("web.fireFoxDriverPath"));
-			wd = new FirefoxDriver();
+
+		if("".equals(properties.getProperty("selenium.server"))) {
+			if (browser.equals(BrowserType.CHROME)) {
+				System.setProperty("webdriver.chrome.driver", properties.getProperty("web.chromeDriverPath"));
+				wd = new ChromeDriver();
+			} else if (browser.equals(BrowserType.IE)) {
+				System.setProperty("webdriver.ie.driver", properties.getProperty("web.ieDriverPath"));
+				wd = new InternetExplorerDriver();
+				wd.manage().window().maximize();
+			} else if (browser.equals(BrowserType.FIREFOX)) {
+				System.setProperty("webdriver.gecko.driver", properties.getProperty("web.fireFoxDriverPath"));
+				wd = new FirefoxDriver();
+			}
+		} else {
+			DesiredCapabilities capabilities = new DesiredCapabilities();
+			capabilities.setBrowserName(browser);
+			wd = new RemoteWebDriver(new URL(properties.getProperty("web.chromeDriverPath")), capabilities);
 		}
+
 
 		wd.get(properties.getProperty("web.baseUrl"));
 		groupHelper = new GroupHelper(wd);
