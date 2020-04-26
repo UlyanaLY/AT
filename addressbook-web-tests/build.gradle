@@ -16,13 +16,13 @@ dependencies {
     implementation 'org.hibernate:hibernate-core:5.4.11.Final'
 }
 
-task TestGroup(type: Test) {
-    useTestNG {
-        suites 'src/test/resources/testng-groups.xml'
-    }
-}
+//task TestGroup(type: Test) {
+//    useTestNG {
+//        suites 'src/test/resources/testng-groups.xml'
+//    }
+//}
 
-task TestContacts(type: Test) {
+task testContacts(type: Test) {
     useTestNG {
         suites 'src/test/resources/testng-contacts.xml'
     }
@@ -36,7 +36,7 @@ task TestContacts(type: Test) {
         systemProperty 'verifyUi', "${verifyUi}"
     }
 }
-task TestGroups(type: Test) {
+task testGroups(type: Test) {
     useTestNG {
         suites 'src/test/resources/testng-groups.xml'
     }

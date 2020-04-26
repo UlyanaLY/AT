@@ -36,11 +36,11 @@ public class ApplicationManager {
 			System.setProperty("webdriver.chrome.driver", properties.getProperty("web.chromeDriverPath"));
 			wd = new ChromeDriver();
 		} else if (browser.equals(BrowserType.IE)) {
-			System.setProperty("webdriver.ie.driver", properties.getProperty("web.fireFoxDriverPath"));
+			System.setProperty("webdriver.ie.driver", properties.getProperty("web.ieDriverPath"));
 			wd = new InternetExplorerDriver();
 			wd.manage().window().maximize();
 		} else if (browser.equals(BrowserType.FIREFOX)) {
-			System.setProperty("webdriver.gecko.driver", properties.getProperty("web.ieDriverPath"));
+			System.setProperty("webdriver.gecko.driver", properties.getProperty("web.fireFoxDriverPath"));
 			wd = new FirefoxDriver();
 		}
 
