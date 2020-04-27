@@ -6,6 +6,11 @@
             <class name="ru.stqa.at.addressbook.test.ContactCreationTest"/>
             <class name="ru.stqa.at.addressbook.test.ContactModificationTest"/>
             <class name="ru.stqa.at.addressbook.test.ContactDeletionTest"/>
+            <class name="ru.stqa.at.addressbook.test.AddContactToGroup"/>
+            <class name="ru.stqa.at.addressbook.test.ContactEmailTest"/>
+            <class name="ru.stqa.at.addressbook.test.ContactPhoneTest"/>
+            <class name="ru.stqa.at.addressbook.test.ContactDeletionTest"/>
+            <class name="ru.stqa.at.addressbook.test.ContactDeletionTest"/>
         </classes>
     </test>
 </suite>
