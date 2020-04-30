@@ -40,7 +40,6 @@ public class ApplicationManager {
 
 		if("".equals(properties.getProperty("selenium.server"))) {
 			if (browser.equals(BrowserType.CHROME)) {
-				System.setProperty("webdriver.chrome.driver", properties.getProperty("web.chromeDriverPath"));
 				wd = new ChromeDriver();
 			} else if (browser.equals(BrowserType.IE)) {
 				System.setProperty("webdriver.ie.driver", properties.getProperty("web.ieDriverPath"));
@@ -53,7 +52,7 @@ public class ApplicationManager {
 		} else {
 			DesiredCapabilities capabilities = new DesiredCapabilities();
 			capabilities.setBrowserName(browser);
-			//capabilities.setPlatform(Platform.fromString(System.getProperty("platform", "WIN10")));
+			capabilities.setPlatform(Platform.fromString(System.getProperty("platform", "WIN10")));
 			wd = new RemoteWebDriver(new URL(properties.getProperty("selenium.server")), capabilities);
 		}
 
