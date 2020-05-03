@@ -1,0 +1,61 @@
+[ {
+  "uid" : "954cbade661a5172",
+  "name" : "testGroupCreation",
+  "time" : {
+    "start" : 1588499074764,
+    "stop" : 1588499076040,
+    "duration" : 1276
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "27a7b40f502f3751",
+  "name" : "testDeleteContactFromGroup",
+  "time" : {
+    "start" : 1588499077630,
+    "stop" : 1588499078772,
+    "duration" : 1142
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "48ea8ced8bbc7a25",
+  "name" : "testBadGroupCreation",
+  "time" : {
+    "start" : 1588499073864,
+    "stop" : 1588499074696,
+    "duration" : 832
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "4137a1067d21aa77",
+  "name" : "testGroupDeletion",
+  "time" : {
+    "start" : 1588499078956,
+    "stop" : 1588499079512,
+    "duration" : 556
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "9ad5938967bed111",
+  "name" : "testGroupModification",
+  "time" : {
+    "start" : 1588499073064,
+    "stop" : 1588499073852,
+    "duration" : 788
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "617a664e6e62323f",
+  "name" : "testGroupCreation",
+  "time" : {
+    "start" : 1588499076045,
+    "stop" : 1588499077381,
+    "duration" : 1336
+  },
+  "status" : "failed",
+  "severity" : "normal"
+} ]

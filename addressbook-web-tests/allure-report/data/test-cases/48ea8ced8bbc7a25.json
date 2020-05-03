@@ -1,0 +1,120 @@
+{
+  "uid" : "48ea8ced8bbc7a25",
+  "name" : "testBadGroupCreation",
+  "fullName" : "ru.stqa.at.addressbook.test.GroupCreationTest.testBadGroupCreation",
+  "historyId" : "bb9712fb49e07641e3ba035b22ec540c",
+  "time" : {
+    "start" : 1588499073864,
+    "stop" : 1588499074696,
+    "duration" : 832
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "logTestStart",
+    "time" : {
+      "start" : 1588499073862,
+      "stop" : 1588499073862,
+      "duration" : 0
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  }, {
+    "name" : "setUp",
+    "time" : {
+      "start" : 1588499064664,
+      "stop" : 1588499072412,
+      "duration" : 7748
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "afterStages" : [ {
+    "name" : "logTestStop",
+    "time" : {
+      "start" : 1588499074697,
+      "stop" : 1588499074697,
+      "duration" : 0
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  }, {
+    "name" : "tearDown",
+    "time" : {
+      "start" : 1588499079518,
+      "stop" : 1588499080176,
+      "duration" : 658
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "ru.stqa.at.addressbook.test.GroupCreationTest"
+  }, {
+    "name" : "testClass",
+    "value" : "ru.stqa.at.addressbook.test.GroupCreationTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "testBadGroupCreation"
+  }, {
+    "name" : "parentSuite",
+    "value" : "SuiteForDebugJenkins"
+  }, {
+    "name" : "suite",
+    "value" : "Groups"
+  }, {
+    "name" : "subSuite",
+    "value" : "ru.stqa.at.addressbook.test.GroupCreationTest"
+  }, {
+    "name" : "host",
+    "value" : "DESKTOP-I785UO6"
+  }, {
+    "name" : "thread",
+    "value" : "12296@DESKTOP-I785UO6.Test worker(9)"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "48ea8ced8bbc7a25.json",
+  "parameterValues" : [ ]
+}

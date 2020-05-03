@@ -1,0 +1,107 @@
+{
+  "uid" : "98d3104e051c652961429bf95fa0b5d6",
+  "name" : "suites",
+  "children" : [ {
+    "name" : "SuiteForDebugJenkins",
+    "children" : [ {
+      "name" : "Groups",
+      "children" : [ {
+        "name" : "ru.stqa.at.addressbook.test.GroupModificationTest",
+        "children" : [ {
+          "name" : "testGroupModification",
+          "uid" : "9ad5938967bed111",
+          "parentUid" : "6727019f75038e90113a36eabdb8e757",
+          "status" : "passed",
+          "time" : {
+            "start" : 1588499073064,
+            "stop" : 1588499073852,
+            "duration" : 788
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        } ],
+        "uid" : "6727019f75038e90113a36eabdb8e757"
+      }, {
+        "name" : "ru.stqa.at.addressbook.test.GroupCreationTest",
+        "children" : [ {
+          "name" : "testBadGroupCreation",
+          "uid" : "48ea8ced8bbc7a25",
+          "parentUid" : "ef5404e39f7285ba2db14fe4e459fedb",
+          "status" : "passed",
+          "time" : {
+            "start" : 1588499073864,
+            "stop" : 1588499074696,
+            "duration" : 832
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        }, {
+          "name" : "testGroupCreation",
+          "uid" : "954cbade661a5172",
+          "parentUid" : "ef5404e39f7285ba2db14fe4e459fedb",
+          "status" : "failed",
+          "time" : {
+            "start" : 1588499074764,
+            "stop" : 1588499076040,
+            "duration" : 1276
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "GroupData{id='2147483647', groupName='test 0_2020-02-23-10-17-49'}" ]
+        }, {
+          "name" : "testGroupCreation",
+          "uid" : "617a664e6e62323f",
+          "parentUid" : "ef5404e39f7285ba2db14fe4e459fedb",
+          "status" : "failed",
+          "time" : {
+            "start" : 1588499076045,
+            "stop" : 1588499077381,
+            "duration" : 1336
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "GroupData{id='2147483647', groupName='test 1_2020-02-23-10-17-49'}" ]
+        } ],
+        "uid" : "ef5404e39f7285ba2db14fe4e459fedb"
+      }, {
+        "name" : "ru.stqa.at.addressbook.test.DeleteContactFromGroup",
+        "children" : [ {
+          "name" : "testDeleteContactFromGroup",
+          "uid" : "27a7b40f502f3751",
+          "parentUid" : "03729da3fce97cb6f18c1fce44703dcd",
+          "status" : "passed",
+          "time" : {
+            "start" : 1588499077630,
+            "stop" : 1588499078772,
+            "duration" : 1142
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        } ],
+        "uid" : "03729da3fce97cb6f18c1fce44703dcd"
+      }, {
+        "name" : "ru.stqa.at.addressbook.test.GroupDeletionTest",
+        "children" : [ {
+          "name" : "testGroupDeletion",
+          "uid" : "4137a1067d21aa77",
+          "parentUid" : "650f92542d3764ea9972f7723acf710e",
+          "status" : "passed",
+          "time" : {
+            "start" : 1588499078956,
+            "stop" : 1588499079512,
+            "duration" : 556
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        } ],
+        "uid" : "650f92542d3764ea9972f7723acf710e"
+      } ],
+      "uid" : "d0a915cc58f01afc9d4485d7cfcb5716"
+    } ],
+    "uid" : "68f94cc4005015d5d5a5afed9f996a65"
+  } ]
+}

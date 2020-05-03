@@ -1,0 +1,103 @@
+{
+  "uid" : "83edc06c07f9ae9e47eb6dd1b683e4e2",
+  "name" : "packages",
+  "children" : [ {
+    "name" : "ru.stqa.at.addressbook.test",
+    "children" : [ {
+      "name" : "GroupModificationTest",
+      "children" : [ {
+        "name" : "testGroupModification",
+        "uid" : "9ad5938967bed111",
+        "parentUid" : "8c4d0cc5987d55f089173f54365bbd93",
+        "status" : "passed",
+        "time" : {
+          "start" : 1588499073064,
+          "stop" : 1588499073852,
+          "duration" : 788
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "8c4d0cc5987d55f089173f54365bbd93"
+    }, {
+      "name" : "GroupCreationTest",
+      "children" : [ {
+        "name" : "testBadGroupCreation",
+        "uid" : "48ea8ced8bbc7a25",
+        "parentUid" : "d549cc368af435405ee2f2fde1ec8930",
+        "status" : "passed",
+        "time" : {
+          "start" : 1588499073864,
+          "stop" : 1588499074696,
+          "duration" : 832
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testGroupCreation",
+        "uid" : "954cbade661a5172",
+        "parentUid" : "d549cc368af435405ee2f2fde1ec8930",
+        "status" : "failed",
+        "time" : {
+          "start" : 1588499074764,
+          "stop" : 1588499076040,
+          "duration" : 1276
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "GroupData{id='2147483647', groupName='test 0_2020-02-23-10-17-49'}" ]
+      }, {
+        "name" : "testGroupCreation",
+        "uid" : "617a664e6e62323f",
+        "parentUid" : "d549cc368af435405ee2f2fde1ec8930",
+        "status" : "failed",
+        "time" : {
+          "start" : 1588499076045,
+          "stop" : 1588499077381,
+          "duration" : 1336
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "GroupData{id='2147483647', groupName='test 1_2020-02-23-10-17-49'}" ]
+      } ],
+      "uid" : "d549cc368af435405ee2f2fde1ec8930"
+    }, {
+      "name" : "DeleteContactFromGroup",
+      "children" : [ {
+        "name" : "testDeleteContactFromGroup",
+        "uid" : "27a7b40f502f3751",
+        "parentUid" : "63748e27512c5941827cd7b84e6a49e6",
+        "status" : "passed",
+        "time" : {
+          "start" : 1588499077630,
+          "stop" : 1588499078772,
+          "duration" : 1142
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "63748e27512c5941827cd7b84e6a49e6"
+    }, {
+      "name" : "GroupDeletionTest",
+      "children" : [ {
+        "name" : "testGroupDeletion",
+        "uid" : "4137a1067d21aa77",
+        "parentUid" : "0c8ca398bf594da77f987ff9a4100e5b",
+        "status" : "passed",
+        "time" : {
+          "start" : 1588499078956,
+          "stop" : 1588499079512,
+          "duration" : 556
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "0c8ca398bf594da77f987ff9a4100e5b"
+    } ],
+    "uid" : "ru.stqa.at.addressbook.test"
+  } ]
+}

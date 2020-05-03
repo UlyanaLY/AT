@@ -1,0 +1,136 @@
+{
+  "uid" : "27a7b40f502f3751",
+  "name" : "testDeleteContactFromGroup",
+  "fullName" : "ru.stqa.at.addressbook.test.DeleteContactFromGroup.testDeleteContactFromGroup",
+  "historyId" : "19083bbb77bc63e14dc15f695135eb05",
+  "time" : {
+    "start" : 1588499077630,
+    "stop" : 1588499078772,
+    "duration" : 1142
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "ensurePreconditions",
+    "time" : {
+      "start" : 1588499077387,
+      "stop" : 1588499077628,
+      "duration" : 241
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  }, {
+    "name" : "logTestStart",
+    "time" : {
+      "start" : 1588499077386,
+      "stop" : 1588499077386,
+      "duration" : 0
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  }, {
+    "name" : "setUp",
+    "time" : {
+      "start" : 1588499064664,
+      "stop" : 1588499072412,
+      "duration" : 7748
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "afterStages" : [ {
+    "name" : "logTestStop",
+    "time" : {
+      "start" : 1588499078774,
+      "stop" : 1588499078774,
+      "duration" : 0
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  }, {
+    "name" : "tearDown",
+    "time" : {
+      "start" : 1588499079518,
+      "stop" : 1588499080176,
+      "duration" : 658
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "ru.stqa.at.addressbook.test.DeleteContactFromGroup"
+  }, {
+    "name" : "testClass",
+    "value" : "ru.stqa.at.addressbook.test.DeleteContactFromGroup"
+  }, {
+    "name" : "testMethod",
+    "value" : "testDeleteContactFromGroup"
+  }, {
+    "name" : "parentSuite",
+    "value" : "SuiteForDebugJenkins"
+  }, {
+    "name" : "suite",
+    "value" : "Groups"
+  }, {
+    "name" : "subSuite",
+    "value" : "ru.stqa.at.addressbook.test.DeleteContactFromGroup"
+  }, {
+    "name" : "host",
+    "value" : "DESKTOP-I785UO6"
+  }, {
+    "name" : "thread",
+    "value" : "12296@DESKTOP-I785UO6.Test worker(9)"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "27a7b40f502f3751.json",
+  "parameterValues" : [ ]
+}
