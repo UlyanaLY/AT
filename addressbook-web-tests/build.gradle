@@ -1,4 +1,20 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "io.qameta.allure:allure-gradle:2.3"
+    }
+}
+
 apply plugin: 'java'
+apply plugin: 'io.qameta.allure'
+
+allure {
+    version = '2.2.1'
+    autoconfigure = true
+    aspectjweaver = true
+}
 
 repositories {
     mavenCentral()
@@ -15,12 +31,6 @@ dependencies {
     implementation 'mysql:mysql-connector-java:8.0.19'
     implementation 'org.hibernate:hibernate-core:5.4.11.Final'
 }
-
-//task TestGroup(type: Test) {
-//    useTestNG {
-//        suites 'src/test/resources/testng-groups.xml'
-//    }
-//}
 
 task testContacts(type: Test) {
     useTestNG {

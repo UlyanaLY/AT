@@ -1,10 +1,10 @@
 package ru.stqa.at.addressbook.test;
 
+import io.qameta.allure.Attachment;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import ru.stqa.at.addressbook.appmanager.ApplicationManager;
-import io.qameta.allure.Attachment;
 
 public class TestListener implements ITestListener {
     @Override
