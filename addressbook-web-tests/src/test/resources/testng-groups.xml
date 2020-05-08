@@ -3,10 +3,7 @@
 <suite name="SuiteForDebugJenkins" verbose="1" >
 <test name="Groups" >
     <classes>
-        <class name="ru.stqa.at.addressbook.test.GroupModificationTest" />
-        <class name="ru.stqa.at.addressbook.test.GroupCreationTest" />
-        <class name="ru.stqa.at.addressbook.test.DeleteContactFromGroup" />
-        <class name="ru.stqa.at.addressbook.test.GroupDeletionTest" />
+        <class name="ru.stqa.at.addressbook.bdd.GroupTests" />
     </classes>
 </test>
 </suite>

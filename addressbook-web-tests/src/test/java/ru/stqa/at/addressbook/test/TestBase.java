@@ -36,7 +36,7 @@ public class TestBase {
 		app.stop();
 	}
 
-	@BeforeMethod
+	@BeforeMethod(alwaysRun = true)
 	public void logTestStart(Method m, Object[] p) {
 		logger.info("Start test " + m.getName() + " with parameters " + Arrays.asList(p));
 	}
