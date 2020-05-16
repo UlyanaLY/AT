@@ -4,6 +4,9 @@
 <test name="Groups" >
     <classes>
         <class name="ru.stqa.at.addressbook.bdd.GroupTests" />
+        <class name="ru.stqa.at.addressbook.test.GroupCreationTest" />
+        <class name="ru.stqa.at.addressbook.test.DeleteContactFromGroup" />
+        <class name="ru.stqa.at.addressbook.test.GroupDeletionTest" />
     </classes>
 </test>
 </suite>
